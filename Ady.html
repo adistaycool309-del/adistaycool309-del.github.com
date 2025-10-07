@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SMKS Islam Malahayati</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap" rel="stylesheet" />
+  <style>
+    /* Reset dan font */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(to right, #a0eec0, #b3e5fc, #ffffff);
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #00bfa5, #81d4fa);
+      padding: 1rem 2rem;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .logo h1 {
+      font-size: 1.5rem;
+    }
+
+    .menu-toggle {
+      font-size: 2rem;
+      cursor: pointer;
+    }
+
+    nav {
+      position: fixed;
+      top: 0;
+      left: -100%;
+      width: 70%;
+      height: 100%;
+      background-color: #ffffff;
+      box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+      transition: left 0.3s ease;
+      padding: 2rem;
+    }
+
+    nav.active {
+      left: 0;
+    }
+
+    nav ul {
+      list-style: none;
+    }
+
+    nav ul li {
+      margin: 1rem 0;
+      font-size: 1.2rem;
+      cursor: pointer;
+    }
+
+    section {
+      padding: 3rem 2rem;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 5rem 2rem;
+      background: linear-gradient(to right, #b2dfdb, #e0f7fa);
+      animation: fadeIn 2s ease;
+    }
+
+    .hero h2 {
+      font-size: 2.5rem;
+      color: #00796b;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: #004d40;
+      margin-top: 0.5rem;
+    }
+
+    .info, .programs, .testimonials, .contact {
+      background-color: #f9f9f9;
+      margin-top: 2rem;
+      border-radius: 10px;
+      padding: 2rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    }
+
+    .info h3, .programs h3, .testimonials h3, .contact h3 {
+      color: #00796b;
+      margin-bottom: 1rem;
+    }
+
+    .programs ul {
+      list-style: square;
+      padding-left: 1.5rem;
+    }
+
+    .testimonials blockquote {
+      background: #e0f2f1;
+      padding: 1rem;
+      border-left: 5px solid #00bfa5;
+      margin-bottom: 1rem;
+      border-radius: 5px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form input, form textarea {
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    form button {
+      background-color: #00bfa5;
+      color: white;
+      border: none;
+      padding: 0.8rem;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 768px) {
+      .hero h2 {
+        font-size: 2rem;
+      }
+      nav {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="logo">
+      <h1>SMKS Islam Malahayati</h1>
+    </div>
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  </header>
+
+  <nav id="sidebar">
+    <ul>
+      <li onclick="showSection('info')">Profil Sekolah</li>
+      <li onclick="showSection('vision')">Visi & Misi</li>
+      <li onclick="showSection('programs')">Program Sekolah</li>
+      <li onclick="showSection('contact')">Kontak</li>
+    </ul>
+  </nav>
+
+  <section class="hero">
+    <h2>SMKS ISLAM MALAHAYATI</h2>
+    <p>Yayasan Bina Bersama Indomas</p>
+  </section>
+
+  <section class="info" id="info">
+    <h3>Profil Sekolah</h3>
+    <p>SMKS Islam Malahayati adalah sekolah menengah kejuruan yang berkomitmen membentuk generasi islami, profesional, dan siap kerja. Terletak di lingkungan yang kondusif, sekolah ini menawarkan pendidikan berkualitas dengan pendekatan spiritual dan teknologi.</p>
+  </section>
+
+  <section class="info" id="vision" style="display:none;">
+    <h3>Visi & Misi</h3>
+    <p><strong>Visi:</strong> Menjadi SMK unggulan yang islami dan berdaya saing global.</p>
+    <p><strong>Misi:</strong></p>
+    <ul>
+      <li>Meningkatkan kualitas pembelajaran berbasis teknologi.</li>
+      <li>Menanamkan nilai-nilai keislaman dalam kehidupan siswa.</li>
+      <li>Menyiapkan lulusan yang siap kerja dan berwirausaha.</li>
+    </ul>
+  </section>
+
+  <section class="programs" id="programs" style="display:none;">
+    <h3>Program Keahlian</h3>
+    <ul>
+      <li>Teknik Jaringan Komputer dan Telekomunikasi (TJKT)</li>
+      <li>Akuntansi dan Keuangan Lembaga (AKL)</li>
+      <li>Manajemen Perkantoran (AP)</li>
+    </ul>
+  </section>
+
+  <section class="contact" id="contact" style="display:none;">
+    <h3>Kontak Sekolah</h3>
+    <p>Alamat: Jl. Pendidikan No. 123, Jakarta</p>
+    <p>Email: info@smksmalahayati.sch.id</p>
+    <p>Telepon: (021) 12345678</p>
+  </section>
+
+  <section class="testimonials">
+    <h3>Testimoni Alumni</h3>
+    <blockquote>
+      "SMKS Islam Malahayati membentuk saya menjadi pribadi yang disiplin dan siap kerja. Terima kasih guru-guru hebat!" – Rina, Alumni AKL
+    </blockquote>
+    <blockquote>
+      "Saya diterima kerja langsung setelah lulus dari TJKT. Kurikulumnya sangat relevan dengan industri." – Dimas, Alumni TJKT
+    </blockquote>
+  </section>
+
+  <section class="contact">
+    <h3>Formulir Kontak</h3>
+    <form>
+      <input type="text" placeholder="Nama Anda" required />
+      <input type="email" placeholder="Email Anda" required />
+      <textarea rows="4" placeholder="Pesan Anda" required></textarea>
+      <button type="submit">Kirim</button>
+    </form>
+  </section>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('sidebar').classList.toggle('active');
+    }
+
+    function showSection(id) {
+      const sections = ['info', 'vision', 'programs', 'contact'];
+      sections.forEach(sec => {
+        document.getElementById(sec).style.display = sec === id ? 'block' : 'none';
+      });
+      toggleMenu();
+    }
+  </script>
+</body>
+</html>
